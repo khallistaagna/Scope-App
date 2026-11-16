@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Warta News App - Starter Project
 
 Selamat datang di repositori Starter untuk pembuatan aplikasi **Warta**. Proyek ini digunakan sebagai _Project-Based Learning_ (PBL) bagi siswi SMK untuk mempelajari pembuatan aplikasi dengan framework Flutter.
@@ -26,3 +27,7 @@ Kamu akan diinstruksikan oleh Trainer untuk mengisi file-file berikut secara ber
 Terdapat banyak komentar bertuliskan `// TODO:` di dalam kode. Ikuti panduan modul dan kerjakan TODO tersebut langkah demi langkah.
 
 Semangat belajar dan Happy Coding! 🚀
+=======
+# Scope-App
+Aplikasi berita mobile modern yang dirancang untuk membantu pengguna mendapatkan informasi terbaru dan mengikuti berbagai topik yang sedang tren dengan mudah.
+>>>>>>> origin/main
