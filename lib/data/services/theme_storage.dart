@@ -8,12 +8,17 @@ class ThemeStorage {
   final SharedPreferencesAsync _prefs = SharedPreferencesAsync();
 
   Future<ThemeMode> load() async {
-    final saved = await _prefs.getString(_key);
-    return ThemeMode.values.firstWhere(
-      (mode) => mode.name == saved,
-      orElse: () => ThemeMode.system,
-    );
+  final saved = await _prefs.getString(_key);
+
+  if (saved == null || saved == ThemeMode.system.name) {
+    return ThemeMode.light;
   }
+
+  return ThemeMode.values.firstWhere(
+    (mode) => mode.name == saved,
+    orElse: () => ThemeMode.light,
+  );
+}
 
   Future<void> save(ThemeMode mode) => _prefs.setString(_key, mode.name);
 }

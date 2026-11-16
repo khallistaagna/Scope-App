@@ -1,14 +1,16 @@
+
 import 'package:flutter/material.dart';
 
 import '../../../data/models/article.dart';
 import 'widgets/detail_app_bar.dart';
 import 'widgets/detail_content.dart';
 import 'widgets/detail_header.dart';
-import 'widgets/read_more_bar.dart';
 
-/// Halaman detail artikel.
 class ArticleDetailScreen extends StatelessWidget {
-  const ArticleDetailScreen({super.key, required this.article});
+  const ArticleDetailScreen({
+    super.key,
+    required this.article,
+  });
 
   final Article article;
 
@@ -18,19 +20,21 @@ class ArticleDetailScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           DetailAppBar(article: article),
+
           SliverPadding(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 40),
             sliver: SliverList.list(
               children: [
                 DetailHeader(article: article),
-                const SizedBox(height: 24),
+
+                const SizedBox(height: 28),
+
                 DetailContent(article: article),
               ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: ReadMoreBar(url: article.url),
     );
   }
 }

@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-// TODO: Ubah menjadi ConsumerWidget saat Riverpod diimplementasikan
+// Bottom Navigation Bar
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({
     super.key,
@@ -13,33 +14,74 @@ class AppNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const red = Color(0xFFFF1D43);
+    const navy = Color(0xFF0C3152);
+
     // TODO: Ambil jumlah bookmark dari provider
     final bookmarkCount = 0;
 
-    return NavigationBar(
-      selectedIndex: currentIndex,
-      onDestinationSelected: onTap,
-      destinations: [
-        const NavigationDestination(
-          icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home_rounded),
-          label: 'Beranda',
+    return Container(
+      decoration: const BoxDecoration(
+        color: red,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(28),
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.explore_outlined),
-          selectedIcon: Icon(Icons.explore_rounded),
-          label: 'Jelajahi',
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(28),
         ),
-        NavigationDestination(
-          icon: Badge.count(
-            count: bookmarkCount,
-            isLabelVisible: bookmarkCount > 0,
-            child: const Icon(Icons.bookmarks_outlined),
-          ),
-          selectedIcon: const Icon(Icons.bookmarks_rounded),
-          label: 'Tersimpan',
+        child: NavigationBar(
+          height: 85,
+          backgroundColor: red,
+          surfaceTintColor: Colors.transparent,
+          elevation: 0,
+          selectedIndex: currentIndex,
+          onDestinationSelected: onTap,
+          indicatorColor: navy,
+          labelBehavior:
+              NavigationDestinationLabelBehavior.alwaysShow,
+          destinations: [
+            const NavigationDestination(
+              icon: Icon(
+                Icons.home_outlined,
+                color: Colors.white,
+              ),
+              selectedIcon: Icon(
+                Icons.home_rounded,
+                color: Colors.white,
+              ),
+              label: 'Beranda',
+            ),
+            const NavigationDestination(
+              icon: Icon(
+                Icons.explore_outlined,
+                color: Colors.white,
+              ),
+              selectedIcon: Icon(
+                Icons.explore_rounded,
+                color: Colors.white,
+              ),
+              label: 'Jelajahi',
+            ),
+            NavigationDestination(
+              icon: Badge.count(
+                count: bookmarkCount,
+                isLabelVisible: bookmarkCount > 0,
+                child: const Icon(
+                  Icons.bookmarks_outlined,
+                  color: Colors.white,
+                ),
+              ),
+              selectedIcon: const Icon(
+                Icons.bookmarks_rounded,
+                color: Colors.white,
+              ),
+              label: 'Tersimpan',
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
